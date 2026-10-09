@@ -1,0 +1,7 @@
+name,r1,r2
+control_rep1,/projectnb/bf528/materials/project-2-rnaseq/subsampled_files/control_rep1_R1.subset.fastq.gz,/projectnb/bf528/materials/project-2-rnaseq/subsampled_files/control_rep1_R2.subset.fastq.gz
+control_rep2,/projectnb/bf528/materials/project-2-rnaseq/subsampled_files/control_rep2_R1.subset.fastq.gz,/projectnb/bf528/materials/project-2-rnaseq/subsampled_files/control_rep2_R2.subset.fastq.gz
+control_rep3,/projectnb/bf528/materials/project-2-rnaseq/subsampled_files/control_rep3_R1.subset.fastq.gz,/projectnb/bf528/materials/project-2-rnaseq/subsampled_files/control_rep3_R2.subset.fastq.gz
+exp_rep1,/projectnb/bf528/materials/project-2-rnaseq/subsampled_files/exp_rep1_R1.subset.fastq.gz,/projectnb/bf528/materials/project-2-rnaseq/subsampled_files/exp_rep1_R2.subset.fastq.gz
+exp_rep2,/projectnb/bf528/materials/project-2-rnaseq/subsampled_files/exp_rep2_R1.subset.fastq.gz,/projectnb/bf528/materials/project-2-rnaseq/subsampled_files/exp_rep2_R2.subset.fastq.gz
+exp_rep3,/projectnb/bf528/materials/project-2-rnaseq/subsampled_files/exp_rep3_R1.subset.fastq.gz,/projectnb/bf528/materials/project-2-rnaseq/subsampled_files/exp_rep3_R2.subset.fastq.gz

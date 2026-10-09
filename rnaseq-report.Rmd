@@ -1,0 +1,359 @@
+---
+title: "Project 2: RNAseq"
+author: "Your Name"
+date: "`r Sys.Date()`"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    number_sections: false
+---
+
+> **Note:** Sections marked **Instructions:** are scaffolding to guide you. Delete every
+> instruction block once you've filled in the section, so the final document contains
+> only your analysis and writing. Delete this section as well.
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE)
+```
+
+```{r libraries}
+# Load the packages you use in this analysis here
+library(tidyverse)
+library(DESeq2)
+library(fgsea)
+```
+
+```{r load_data}
+# Read in your counts matrix, gene ID / name mapping, and sample metadata
+
+```
+
+# Phase 1: Blind analysis
+
+## Experimental Design
+
+> **Instructions (1 paragraph):** Using only the sample metadata you were given, describe
+> the experiment:
+>
+> - How many groups are there, and how many replicates per group?
+> - What covariates are provided (e.g. sex, batch, sequencing run)?
+> - What comparison(s) can this design support? What kinds of effects might it be unable
+>   to detect?
+> - What potential confounders would you be concerned about, and can you account for them
+>   with the information you have?
+>
+> *Delete this instruction block once you've completed this section.*
+
+
+
+## Methods
+
+> **Instructions (as long as needed):** Concisely describe which steps were taken in the
+> analysis of the data, following our conventions for a methods section (see the methods
+> guidelines presentation).
+>
+> - Specify the software versions used and the parameters for each step. If no parameters
+>   were changed, state that default parameters were used.
+> - Include any details necessary for someone else to replicate your analysis exactly.
+> - You can exclude details that should not affect the results, such as exact file paths.
+> - Cover both the Nextflow pipeline you developed and the analyses in this notebook.
+>
+> *Delete this instruction block once you've completed this section.*
+
+
+
+## Read Quality Control
+
+> **Instructions (1-2 paragraphs):** Use the MultiQC report or the individual FastQC and
+> STAR logs to evaluate the quality of the reads. At minimum, address each of the following
+> (even if there's no issue, state that there is no issue):
+>
+> - The range of the number of reads in all the samples
+> - Any potential issues with the reads as flagged by FastQC
+> - Any overrepresented sequences, or adapter contamination in the reads
+> - The alignment rate of the reads to the reference genome
+> - Multimapping rate
+> - Whether you believe the experiment was of high quality and suitable for downstream
+>   analysis. If not, what you would do to improve the quality of the reads?
+>
+> *Delete this instruction block once you've completed this section.*
+
+
+
+## Filtering the Counts Matrix
+
+> **Instructions (1-2 paragraphs):** Describe the filtering process you used on the counts
+> matrix.
+>
+> - Include two plots showing the distribution of counts before and after filtering
+> - State the number of genes present before and after filtering
+> - Justify in a paragraph why you chose to filter in this way
+>
+> *Delete this instruction block once you've completed this section.*
+
+```{r filter_counts}
+# Filter the counts matrix
+
+```
+
+```{r counts_distribution_before}
+# Plot the distribution of counts before filtering
+
+```
+
+```{r counts_distribution_after}
+# Plot the distribution of counts after filtering
+
+```
+
+## Differential Expression Analysis
+
+> **Instructions (3-4 paragraphs):**
+>
+> - Create a table of the top 10 differentially expressed genes and the statistics provided
+>   by DESeq2, ranked by adjusted p-value
+> - Choose a padj threshold and report the number of significant genes at this threshold,
+>   separated into up- and downregulated
+> - Use the thresholded results to perform a DAVID or Enrichr analysis on the significant
+>   genes at your chosen padj threshold
+>     - State the background gene set you used and justify it
+>     - State whether you submitted up- and downregulated genes together or separately,
+>       and why
+> - Perform a GSEA analysis using
+>   [fgsea](https://bioconductor.org/packages/release/bioc/html/fgsea.html) on your RNAseq
+>   results using the C2 canonical pathways MSigDB dataset and log2 fold change as the
+>   ranking metric
+> - Choose a padj threshold for the fgsea analysis and create a plot of your choice that
+>   displays the top most significantly enriched pathways
+> - Comment briefly on the results of the DAVID or Enrichr analysis and the table you
+>   created, and what it indicates about the biological processes that might differ
+>   between groups
+> - Comment briefly on the results of the fgsea analysis by stating what you believe are
+>   the main significant pathways of interest and why
+> - Compare the results from your DAVID/Enrichr analysis and your fgsea analysis and
+>   comment on any similarities or differences you observe
+>
+> *Delete this instruction block once you've completed this section.*
+
+```{r deseq2}
+# Run DESeq2
+
+```
+
+```{r top10_table}
+# Table of the top 10 DE genes ranked by padj
+
+```
+
+```{r significant_genes}
+# Number of significant genes at your padj threshold, split into up- and downregulated
+
+```
+
+```{r enrichment_input}
+# Prepare / write out gene lists and background for DAVID or Enrichr
+
+```
+
+## Sample Quality Control
+
+> **Instructions (2 paragraphs):** Evaluate your samples before performing differential
+> expression. These plots tell you whether your downstream results can be trusted.
+>
+> - Following the DESeq2 vignette, normalize the filtered counts using the rlog
+>   transformation or the variance-stabilizing transformation
+> - Perform PCA on the normalized counts matrix and overlay the sample information in a
+>   biplot of PC1 vs. PC2
+> - Create a heatmap or graphic of the sample-to-sample distances for the experiment
+> - Do the samples cluster by experimental group? Are any samples outliers? Do any
+>   covariates appear to explain the variation better than the experimental groups?
+> - Based only on these plots, would you proceed to differential expression with all
+>   samples as they are? If not, what would you change, and why?
+>
+> *Delete this instruction block once you've completed this section.*
+
+```{r normalize}
+# Normalize the filtered counts (rlog or VST)
+
+```
+
+```{r pca}
+# PCA biplot of PC1 vs. PC2 with sample information overlaid
+
+```
+
+```{r sample_distances}
+# Heatmap or graphic of sample-to-sample distances
+
+```
+
+## DAVID / Enrichr results
+
+
+
+```{r fgsea}
+# Run fgsea using C2 canonical pathways and log2 fold change as the ranking metric
+
+```
+
+```{r fgsea_plot}
+# Plot the top significantly enriched pathways
+
+```
+
+## fgsea results
+
+
+
+## Comparing DAVID/Enrichr and fgsea
+
+
+
+## Interpretations
+
+> **Instructions (2-3 paragraphs):** Using the number and direction of your DE genes, along
+> with your pathway and enrichment results:
+>
+> - Speculate broadly on the major changes caused by the experimental condition
+> - Which results most strongly support your speculation?
+>
+> *Delete this instruction block once you've completed this section.*
+
+
+
+## Your Conclusions and Follow-up
+
+> **Instructions:**
+>
+> - Propose two to three additional experiments you might do to validate your findings.
+>   You do not have to do them; just propose them and anticipate what they would show you
+>   if your findings held, and what result would convince you that your findings were
+>   wrong.
+> - Propose at least two follow-up experiments that would extend or expand on your
+>   findings.
+>
+> *Delete this instruction block once you've completed this section.*
+
+### Validation experiments
+
+
+
+### Follow-up experiments
+
+
+
+# Phase 2: Informed analysis
+
+> **Note:** Do not revise your Phase 1 interpretation. Phase 2 is meant as a way to compare
+> your results with the published work.
+
+## Introduction
+
+> **Instructions (1 paragraph):**
+>
+> - What is the biological background of the study?
+> - Why was the study performed?
+> - Why did the authors use the bioinformatic techniques they did?
+>
+> *Delete this instruction block once you've completed this section.*
+
+
+
+## Replicate Figures 3C and 3F
+
+> **Instructions (3-4 paragraphs):**
+>
+> - Create a volcano plot similar to the one seen in figure 3C
+> - Use your DAVID/Enrichr or fgsea results and create a plot resembling figure 3F but with
+>   your findings. You do not need to use the same pathways as they did.
+> - Read their discussion of their results and address the numbered questions below.
+>
+> *Delete this instruction block once you've completed this section.*
+
+```{r volcano_plot}
+# Volcano plot similar to figure 3C
+
+```
+
+```{r figure_3f}
+# Enrichment plot resembling figure 3F using your DAVID/Enrichr or fgsea results
+
+```
+
+### 1. Up- and downregulated genes
+
+> **Instructions:** Compare how many significant genes are up- and downregulated in their
+> findings and yours (using their significance threshold). List how many you find vs. how
+> many they report.
+>
+> *Delete this instruction block once you've completed this section.*
+
+```{r compare_counts}
+# Number of up- and downregulated genes at the authors' significance threshold
+
+```
+
+|                | Your results | Reported in paper |
+|----------------|--------------|-------------------|
+| Upregulated    |              |                   |
+| Downregulated  |              |                   |
+
+
+
+### 2. Enrichment comparison
+
+> **Instructions:** Compare their enrichment results with your DAVID/Enrichr and fgsea
+> analyses. Comment on any differences you observe.
+>
+> *Delete this instruction block once you've completed this section.*
+
+
+
+### 3. Sources of discrepancy
+
+> **Instructions:** List the candidate sources of discrepancy between your results and
+> theirs (e.g. genome and annotation versions, aligner, filtering, normalization,
+> thresholds, multiple testing correction). Using the paper's methods as evidence, comment
+> on at least two candidate sources you believe contribute the most to the differences you
+> observe.
+>
+> - For each candidate source, propose a follow-up analysis or experiment that would reveal
+>   whether it was the likely source of the differences. **You do not need to actually do
+>   this analysis, just propose how.**
+>
+> *Delete this instruction block once you've completed this section.*
+
+
+
+## Comparing Interpretations
+
+> **Instructions (2-3 paragraphs):** Return to your first interpretations about the major
+> biological pathways implicated in the results:
+>
+> - Did the authors emphasize any genes or pathways that were weak or absent in your
+>   results? How strongly do you think their data support those claims?
+> - Which of your findings agree with the authors'? Does reaching the same result through
+>   a different pipeline make you more or less confident in it, and why?
+>
+> *Delete this instruction block once you've completed this section.*
+
+
+
+## Conclusions
+
+> **Instructions (1-2 paragraphs):**
+>
+> - Compare your first conclusions with those made by the paper. Did they propose any
+>   follow-up experiments or perform any validation? What was different between what you
+>   proposed and what they did or proposed in the text?
+>
+> *Delete this instruction block once you've completed this section.*
+
+
+
+# Session Info
+
+```{r session_info}
+sessionInfo()
+```
