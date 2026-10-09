@@ -12,6 +12,8 @@ output:
 > **Note:** Sections marked **Instructions:** are scaffolding to guide you. Delete every
 > instruction block once you've filled in the section, so the final document contains
 > only your analysis and writing. Delete this section as well.
+> If there is anything missing here or mistakes, please use the textbook guidelines as the
+> ultimate source of truth.
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE)
